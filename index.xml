@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tsihan New Hugo Site</title>
+    <link>http://example.org/</link>
+    <description>Recent content on Tsihan New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 25 Apr 2023 15:34:37 +0800</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Post</title>
+      <link>http://example.org/post/my-first-post/</link>
+      <pubDate>Tue, 25 Apr 2023 15:34:37 +0800</pubDate>
+      
+      <guid>http://example.org/post/my-first-post/</guid>
+      <description>俯仰之间看见了满船的星河
+潮湿的夜晚寄托了怅然若失
+记忆以童年的残骸向后隐去
+星月灿烂因心悸被投向漩涡
+用手掌抵住兽首虚无的温度
+恰好抵住跳动心脏孤立无援
+洗濯之水弥漫过蝉鸣的绵密
+一折草木在窗边独立的生长
+又看见十几年前的记忆残片
+小心问祖母无关紧要的语丝
+隐秘的传达平静内心的渴求
+幡然醒悟虚幻已是永恒告别
+再也记不住的过去碎成惆怅
+只剩下苍白而文字愈发停驻
+梦的诞生与必然消亡的双向
+黑暗中只剩乐园崩塌的尘埃</description>
+    </item>
+    
+  </channel>
+</rss>
