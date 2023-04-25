@@ -6,7 +6,19 @@
     <description>Recent content on Tsihan&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Apr 2023 19:37:24 +0800</lastBuildDate><atom:link href="https://Tsihan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Apr 2023 23:11:14 +0800</lastBuildDate><atom:link href="https://Tsihan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Testimage</title>
+      <link>https://Tsihan.github.io/post/testimage/</link>
+      <pubDate>Tue, 25 Apr 2023 23:11:14 +0800</pubDate>
+      
+      <guid>https://Tsihan.github.io/post/testimage/</guid>
+      <description>新建一个服务站点，参数配置参考类比如下：
+绝对路径 新建一个服务站点，参数配置参考类比如下：
+远程github图床 新建一个服务站点，参数配置参考类比如下：
+绝对路径 新建一个服务站点，参数配置参考类比如下：</description>
+    </item>
+    
     <item>
       <title>构建本地的python客户端以及导入自带gremlin json格式数据文档</title>
       <link>https://Tsihan.github.io/post/graduation-4-post/</link>
