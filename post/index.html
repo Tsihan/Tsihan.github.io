@@ -12,7 +12,7 @@
     "@type": "Person",
     "name": "Qihan Zhang",
     
-    "image": "https://www.gravatar.com/avatar/e3941c19c24bb38a29f2986122a0905f"
+    "image": "https://Tsihan.github.io/images/icon.jpg"
     
   },
   "name":"Tsihan\u0027s Blog",
@@ -51,8 +51,8 @@
 
 
 
-  <meta property="og:image" content="https://www.gravatar.com/avatar/e3941c19c24bb38a29f2986122a0905f?s=640">
-  <meta property="twitter:image" content="https://www.gravatar.com/avatar/e3941c19c24bb38a29f2986122a0905f?s=640">
+  <meta property="og:image" content="https://Tsihan.github.io/images/icon.jpg">
+  <meta property="twitter:image" content="https://Tsihan.github.io/images/icon.jpg">
 
 
 
@@ -101,7 +101,7 @@
     
     
       
-        <img class="header-picture" src="https://www.gravatar.com/avatar/e3941c19c24bb38a29f2986122a0905f?s=90" alt="作者的图片" />
+        <img class="header-picture" src="https://Tsihan.github.io/images/icon.jpg" alt="作者的图片" />
       
     
     </a>
@@ -113,11 +113,11 @@
     
       <div class="sidebar-profile">
         <a href="https://Tsihan.github.io/#about" aria-label="阅读有关作者的更多信息">
-          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/e3941c19c24bb38a29f2986122a0905f?s=110" alt="作者的图片" />
+          <img class="sidebar-profile-picture" src="https://Tsihan.github.io/images/icon.jpg" alt="作者的图片" />
         </a>
         <h4 class="sidebar-profile-name">Qihan Zhang</h4>
         
-          <h5 class="sidebar-profile-bio">Super bio with markdown support <strong>COOL</strong></h5>
+          <h5 class="sidebar-profile-bio">male</h5>
         
       </div>
     
@@ -179,7 +179,7 @@
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://github.com/kakawait" target="_blank" rel="noopener" title="GitHub">
+      <a class="sidebar-button-link " href="https://github.com/Tsihan" target="_blank" rel="noopener" title="GitHub">
     
       <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
       
@@ -189,11 +189,11 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://stackoverflow.com/users/636472/kakawait" target="_blank" rel="noopener" title="Stack Overflow">
+      <a class="sidebar-button-link " href="https://www.zhihu.com/people/re-stanley" target="_blank" rel="noopener" title="知乎">
     
       <i class="sidebar-button-icon fab fa-lg fa-stack-overflow" aria-hidden="true"></i>
       
-      <span class="sidebar-button-desc">Stack Overflow</span>
+      <span class="sidebar-button-desc">知乎</span>
     </a>
   </li>
 
@@ -244,9 +244,291 @@
     <div class="postShorten-header">
       <h1 class="postShorten-title">
       
-        <a class="link-unstyled" href="https://Tsihan.github.io/post/my-second-post/" aria-label="打开帖子: My Second Post">
+        <a class="link-unstyled" href="https://Tsihan.github.io/post/graduation-4-post/" aria-label="打开帖子: 构建本地的python客户端以及导入自带gremlin json格式数据文档">
       
-          My Second Post
+          构建本地的python客户端以及导入自带gremlin json格式数据文档
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2023-04-25T19:37:24&#43;08:00">
+        
+  四月 25, 2023
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://Tsihan.github.io/categories/category">category</a>, 
+    
+      <a class="category-link" href="https://Tsihan.github.io/categories/subcategory">subcategory</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        构建本地的python客户端以及导入自带gremlin json格式数据文档 作者：张启涵 注：该文档用于完成本科毕业设计，完成毕业设计后开源。 数据导入方式 JanusGraph图数据库提供如下几种数据导入方式：
+**☑ Api数据导入：**该方案通过提交java/python/.NET等 api插入数据请求，可用于数据量较小的情况下使用；
+**☑ 基于Gremlin Server的批量数据导入：**该方案通过gremlin语句提交插入请求，需搭建Gremlin Server服务，要有一定的研发能力；
+**☑ 基于Bulk Loader组件导入：**官方提供批量导入方式，需要Hadoop/Spark集群环境，支持json、csv、xml、kryo等类型，可用于大批量数据导入。
+使用Gremlin Server导入gremlin json数据 首先运行janusgraph-server，在命令行终端输入以下指令（根据具体的安装位置可能有所不同）：
+#后端存储使用BerkeleyDB,索引使用elastic search /opt/janusgraph-0.6.2/bin/janusgraph-server.sh /opt/janusgraph-0.6.2/conf/gremlin-server/gremlin-server-berkeleyje-es.yaml #如使用内存存储且不带索引，输入以下指令 /opt/janusgraph-0.6.2/bin/janusgraph-server.sh /opt/janusgraph-0.6.2/conf/gremlin-server/gremlin-server.yaml 如果配置使用前者，则首先启动elastic search服务：
+/opt/elasticsearch-7.14.0/bin/elasticsearch 启动Gremlin Server后在gremlin终端输入以下命令：
+:remote connect tinkerpop.server conf/remote.yaml:remote console#使用Janus Graph自带的json数据graph.io(graphson()).readGraph(&#39;/opt/janusgraph-0.6.2/data/grateful-dead.json&#39;)g = graph.traversal()#测试输出gremlin&gt; g.V().count()==&gt;808gremlin&gt; g.E().count()==&gt;8049gremlin&gt; g==&gt;graphtraversalsource[standardjanusgraph[inmemory:[127.0.0.1]], standard]#数据导出为json格式graph.io(graphson()).writeGraph(&#39;/opt/janusgraph-0.6.2/data/grateful-dead-exportetest.json&#39;) 当
+出现property key异常时，可以有以下解决方案：
+gremlin&gt; JanusGraph.version() ==&gt;0.2.0 gremlin&gt; graph = JanusGraphFactory.open(&#39;inmemory&#39;) ==&gt;standardjanusgraph[inmemory:[127.0.0.1]] gremlin&gt; g = graph.
+      
+      <p>
+        
+          <a href="https://Tsihan.github.io/post/graduation-4-post/" class="postShorten-excerpt_link link" aria-label="打开帖子: 构建本地的python客户端以及导入自带gremlin json格式数据文档">阅读全文</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+          
+            
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://Tsihan.github.io/post/graduation-3-post/" aria-label="打开帖子: JanusGraph 0.6.2 分布式集群部署文档">
+      
+          JanusGraph 0.6.2 分布式集群部署文档
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2023-04-25T19:37:19&#43;08:00">
+        
+  四月 25, 2023
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://Tsihan.github.io/categories/category">category</a>, 
+    
+      <a class="category-link" href="https://Tsihan.github.io/categories/subcategory">subcategory</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        JanusGraph 0.6.2 分布式集群部署文档 作者：张启涵 注：该文档用于完成本科毕业设计，完成毕业设计后开源。 安装环境 四台阿里云ECS服务器（事先已经配备四个弹性网卡，四台服务器均在一个VPC下，由一个路由表和交换机负责进行内网的通信和消息转发。 由于JanusGraph的后端存储使用Cassandra，故在阿里云默认安全组的基础上，需要开放基于自定义TCP的9042的入方向端口 ，可以根据Cassandra的配置进行修改）、一台本地WSL。
+操作系统均是Ubuntu20.04版本。
+服务器除系统盘之外，各配置两块数据盘。用于Cassanda和外部数据存储的挂载盘。
+安装Java 安装Java8 以 root 或者其他拥有 sudo 权限用户身份运行下面的命令，更新软件包索引，并且安装OpenJDK 8 JDK 软件包：
+sudo apt update sudo apt install open-8-jdk 安装完成之后，通过检查Java版本进行安装验证（应该会具有类似以下的输出）：
+openjdk version &#34;1.8.0_362&#34; OpenJDK Runtime Environment (build 1.8.0_362-8u362-ga-0ubuntu1~20.04.1-b09) OpenJDK 64-Bit Server VM (build 25.362-b09, mixed mode) 配置Java默认版本 如果系统上安装了多个Java版本，可以使用以下命令配置默认版本：
+sudo update-alternatives --config java 如果系统只有一个Java版本，会显示类似以下的输出：
+There is only one alternative in link group java (providing /usr/bin/java): /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java Nothing to configure. 如果系统有多个Java版本，会显示类似以下的输出：
+There are 2 choices for the alternative java (providing /usr/bin/java).
+      
+      <p>
+        
+          <a href="https://Tsihan.github.io/post/graduation-3-post/" class="postShorten-excerpt_link link" aria-label="打开帖子: JanusGraph 0.6.2 分布式集群部署文档">阅读全文</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+          
+            
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://Tsihan.github.io/post/graduation-2-post/" aria-label="打开帖子: JanusGraph0.6.2源代码编译（生成可发布版本）">
+      
+          JanusGraph0.6.2源代码编译（生成可发布版本）
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2023-04-25T19:37:15&#43;08:00">
+        
+  四月 25, 2023
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://Tsihan.github.io/categories/category">category</a>, 
+    
+      <a class="category-link" href="https://Tsihan.github.io/categories/subcategory">subcategory</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        JanusGraph0.6.2源代码编译（生成可发布版本） 作者：张启涵 注：该文档用于完成本科毕业设计，完成毕业设计后开源。 获取源代码 从JanusGraph下载地址获取源代码版本，如下：
+根据操作系统以及系统所包含的解压缩工具进行选择。
+根据自身需要修改源代码 根据数据库内核开发的流程对源代码进行修改，建议使用git版本工具管理。
+增加DGSS模块 在如下图所示的位置加入DGSS算法模块：
+修改ID放置策略 对于PropertyPlacementStrategy.java文件，修改内容如下：
+/** * 要修改 * * @param vertex * @return */ private int getPartitionIDbyKey(JanusGraphVertex vertex) { Preconditions.checkState(idManager != null &amp;&amp; key != null, &#34;PropertyPlacementStrategy has not been initialized correctly&#34;); assert idManager.getPartitionBound() &lt;= Integer.MAX_VALUE; int partitionBound = (int) idManager.getPartitionBound(); Iterator&lt;JanusGraphVertexProperty&gt; it = vertex.query().keys(key).properties().iterator(); final JanusGraphVertexProperty p = it.hasNext() ? it.next() : null; if (p == null) { return -1; } //这块可以修改 hashPid通过DGSS的方式获得 // int hashPid = Math.
+      
+      <p>
+        
+          <a href="https://Tsihan.github.io/post/graduation-2-post/" class="postShorten-excerpt_link link" aria-label="打开帖子: JanusGraph0.6.2源代码编译（生成可发布版本）">阅读全文</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+          
+            
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://Tsihan.github.io/post/graduation-1-post/" aria-label="打开帖子: FTP与SFTP服务器部署文档">
+      
+          FTP与SFTP服务器部署文档
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2023-04-25T19:37:10&#43;08:00">
+        
+  四月 25, 2023
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://Tsihan.github.io/categories/category">category</a>, 
+    
+      <a class="category-link" href="https://Tsihan.github.io/categories/subcategory">subcategory</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt">
+      
+        FTP与SFTP服务器部署文档 作者：张启涵 注：该文档用于完成本科毕业设计，完成毕业设计后开源。 FTP服务器部署 部署的服务端系统环境为Ubuntu20.04，服务端使用vsftpd。客户端通过WinSCP以及Java下apache.commons.net.ftp提供的FTPClient进行连接。
+安装vsftpd 在服务器新建一个终端键入如下命令：
+sudo apt-get install vsftpd 创建ftp新用户 创建相应的新用户以及赋予权限：
+sudo mkdir /home/myftp sudo chmod 777 /home/myftp -R sudo useradd -m myftp -d /home/myftp 修改服务器配置 打开/etc/vsftpd.conf文件并编辑：
+sudo vim /etc/vsftpd.conf 本次开发使用到的配置如下（编辑/etc/vsftpd.conf文件）：
+listen=YESanonymous_enable=NOlocal_enable=YESwrite_enable=YESdirmessage_enable=YESuse_localtime=YESxferlog_enable=YESconnect_from_port_20=YESxferlog_file=/var/log/vsftpd.logxferlog_std_format=YESftpd_banner=Welcome to blah FTP service.local_root=/home/myftpchroot_local_user=YESchroot_list_enable=YESchroot_list_file=/etc/vsftpd.chroot_listsecure_chroot_dir=/var/run/vsftpd/emptypam_service_name=myftprsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pemrsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key 其中：
+local_root=/home/myftp目录为之前创建的用户目录，pam_service_name=myftp 默认为vsftpd，需要更改为创建的ftp用户名。
+创建文件vsftpd.chroot_list：
+sudo vim /etc/vsftpd.chroot_list 将之前创建的用户的名称(myftp)添加到该文件中。
+如果将现有用户添加到FTP允许访问名单中，只需要改变local_root以及pam_service_name的具体参数即可。将现有用户的名称添加到文件vsftpd.chroot_list中。
+对于阿里云服务器的配置可以参考该网站。
+在终端根据需求输入以下命令：
+//启动服务 sudo service vsftpd start //重启服务 sudo service vsftpd restart //停止服务 sudo service vsftpd stop //开机自启动服务 sudo systemctl enable vsftpd.
+      
+      <p>
+        
+          <a href="https://Tsihan.github.io/post/graduation-1-post/" class="postShorten-excerpt_link link" aria-label="打开帖子: FTP与SFTP服务器部署文档">阅读全文</a>
+        
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+          
+            
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title">
+      
+        <a class="link-unstyled" href="https://Tsihan.github.io/post/my-second-post/" aria-label="打开帖子: 成为怎样的人">
+      
+          成为怎样的人
         </a>
       </h1>
       
@@ -278,7 +560,7 @@
       
       <p>
         
-          <a href="https://Tsihan.github.io/post/my-second-post/" class="postShorten-excerpt_link link" aria-label="打开帖子: My Second Post">阅读全文</a>
+          <a href="https://Tsihan.github.io/post/my-second-post/" class="postShorten-excerpt_link link" aria-label="打开帖子: 成为怎样的人">阅读全文</a>
         
         
       </p>
@@ -306,9 +588,9 @@
     <div class="postShorten-header">
       <h1 class="postShorten-title">
       
-        <a class="link-unstyled" href="https://Tsihan.github.io/post/my-first-post/" aria-label="打开帖子: My First Post">
+        <a class="link-unstyled" href="https://Tsihan.github.io/post/my-first-post/" aria-label="打开帖子: 午夜惊梦">
       
-          My First Post
+          午夜惊梦
         </a>
       </h1>
       
@@ -355,7 +637,7 @@
       
       <p>
         
-          <a href="https://Tsihan.github.io/post/my-first-post/" class="postShorten-excerpt_link link" aria-label="打开帖子: My First Post">阅读全文</a>
+          <a href="https://Tsihan.github.io/post/my-first-post/" class="postShorten-excerpt_link link" aria-label="打开帖子: 午夜惊梦">阅读全文</a>
         
         
       </p>
@@ -383,18 +665,12 @@
       <i class="fa fa-times"></i>
     </div>
     
-      <img id="about-card-picture" src="https://www.gravatar.com/avatar/e3941c19c24bb38a29f2986122a0905f?s=110" alt="作者的图片" />
+      <img id="about-card-picture" src="https://Tsihan.github.io/images/icon.jpg" alt="作者的图片" />
     
     <h4 id="about-card-name">Qihan Zhang</h4>
     
-      <div id="about-card-bio">Super bio with markdown support <strong>COOL</strong></div>
+      <div id="about-card-bio">male</div>
     
-    
-      <div id="about-card-job">
-        <i class="fa fa-briefcase"></i>
-        <br/>
-        Your job title
-      </div>
     
     
       <div id="about-card-location">

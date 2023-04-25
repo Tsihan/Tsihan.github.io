@@ -6,9 +6,79 @@
     <description>Recent content on Tsihan&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Apr 2023 16:32:43 +0800</lastBuildDate><atom:link href="https://Tsihan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Apr 2023 19:37:24 +0800</lastBuildDate><atom:link href="https://Tsihan.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>My Second Post</title>
+      <title>构建本地的python客户端以及导入自带gremlin json格式数据文档</title>
+      <link>https://Tsihan.github.io/post/graduation-4-post/</link>
+      <pubDate>Tue, 25 Apr 2023 19:37:24 +0800</pubDate>
+      
+      <guid>https://Tsihan.github.io/post/graduation-4-post/</guid>
+      <description>构建本地的python客户端以及导入自带gremlin json格式数据文档 作者：张启涵 注：该文档用于完成本科毕业设计，完成毕业设计后开源。 数据导入方式 JanusGraph图数据库提供如下几种数据导入方式：
+**☑ Api数据导入：**该方案通过提交java/python/.NET等 api插入数据请求，可用于数据量较小的情况下使用；
+**☑ 基于Gremlin Server的批量数据导入：**该方案通过gremlin语句提交插入请求，需搭建Gremlin Server服务，要有一定的研发能力；
+**☑ 基于Bulk Loader组件导入：**官方提供批量导入方式，需要Hadoop/Spark集群环境，支持json、csv、xml、kryo等类型，可用于大批量数据导入。
+使用Gremlin Server导入gremlin json数据 首先运行janusgraph-server，在命令行终端输入以下指令（根据具体的安装位置可能有所不同）：
+#后端存储使用BerkeleyDB,索引使用elastic search /opt/janusgraph-0.6.2/bin/janusgraph-server.sh /opt/janusgraph-0.6.2/conf/gremlin-server/gremlin-server-berkeleyje-es.yaml #如使用内存存储且不带索引，输入以下指令 /opt/janusgraph-0.6.2/bin/janusgraph-server.sh /opt/janusgraph-0.6.2/conf/gremlin-server/gremlin-server.yaml 如果配置使用前者，则首先启动elastic search服务：
+/opt/elasticsearch-7.14.0/bin/elasticsearch 启动Gremlin Server后在gremlin终端输入以下命令：
+:remote connect tinkerpop.server conf/remote.yaml:remote console#使用Janus Graph自带的json数据graph.io(graphson()).readGraph(&amp;#39;/opt/janusgraph-0.6.2/data/grateful-dead.json&amp;#39;)g = graph.traversal()#测试输出gremlin&amp;gt; g.V().count()==&amp;gt;808gremlin&amp;gt; g.E().count()==&amp;gt;8049gremlin&amp;gt; g==&amp;gt;graphtraversalsource[standardjanusgraph[inmemory:[127.0.0.1]], standard]#数据导出为json格式graph.io(graphson()).writeGraph(&amp;#39;/opt/janusgraph-0.6.2/data/grateful-dead-exportetest.json&amp;#39;) 当
+出现property key异常时，可以有以下解决方案：
+gremlin&amp;gt; JanusGraph.version() ==&amp;gt;0.2.0 gremlin&amp;gt; graph = JanusGraphFactory.open(&amp;#39;inmemory&amp;#39;) ==&amp;gt;standardjanusgraph[inmemory:[127.0.0.1]] gremlin&amp;gt; g = graph.</description>
+    </item>
+    
+    <item>
+      <title>JanusGraph 0.6.2 分布式集群部署文档</title>
+      <link>https://Tsihan.github.io/post/graduation-3-post/</link>
+      <pubDate>Tue, 25 Apr 2023 19:37:19 +0800</pubDate>
+      
+      <guid>https://Tsihan.github.io/post/graduation-3-post/</guid>
+      <description>JanusGraph 0.6.2 分布式集群部署文档 作者：张启涵 注：该文档用于完成本科毕业设计，完成毕业设计后开源。 安装环境 四台阿里云ECS服务器（事先已经配备四个弹性网卡，四台服务器均在一个VPC下，由一个路由表和交换机负责进行内网的通信和消息转发。 由于JanusGraph的后端存储使用Cassandra，故在阿里云默认安全组的基础上，需要开放基于自定义TCP的9042的入方向端口 ，可以根据Cassandra的配置进行修改）、一台本地WSL。
+操作系统均是Ubuntu20.04版本。
+服务器除系统盘之外，各配置两块数据盘。用于Cassanda和外部数据存储的挂载盘。
+安装Java 安装Java8 以 root 或者其他拥有 sudo 权限用户身份运行下面的命令，更新软件包索引，并且安装OpenJDK 8 JDK 软件包：
+sudo apt update sudo apt install open-8-jdk 安装完成之后，通过检查Java版本进行安装验证（应该会具有类似以下的输出）：
+openjdk version &amp;#34;1.8.0_362&amp;#34; OpenJDK Runtime Environment (build 1.8.0_362-8u362-ga-0ubuntu1~20.04.1-b09) OpenJDK 64-Bit Server VM (build 25.362-b09, mixed mode) 配置Java默认版本 如果系统上安装了多个Java版本，可以使用以下命令配置默认版本：
+sudo update-alternatives --config java 如果系统只有一个Java版本，会显示类似以下的输出：
+There is only one alternative in link group java (providing /usr/bin/java): /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java Nothing to configure. 如果系统有多个Java版本，会显示类似以下的输出：
+There are 2 choices for the alternative java (providing /usr/bin/java).</description>
+    </item>
+    
+    <item>
+      <title>JanusGraph0.6.2源代码编译（生成可发布版本）</title>
+      <link>https://Tsihan.github.io/post/graduation-2-post/</link>
+      <pubDate>Tue, 25 Apr 2023 19:37:15 +0800</pubDate>
+      
+      <guid>https://Tsihan.github.io/post/graduation-2-post/</guid>
+      <description>JanusGraph0.6.2源代码编译（生成可发布版本） 作者：张启涵 注：该文档用于完成本科毕业设计，完成毕业设计后开源。 获取源代码 从JanusGraph下载地址获取源代码版本，如下：
+根据操作系统以及系统所包含的解压缩工具进行选择。
+根据自身需要修改源代码 根据数据库内核开发的流程对源代码进行修改，建议使用git版本工具管理。
+增加DGSS模块 在如下图所示的位置加入DGSS算法模块：
+修改ID放置策略 对于PropertyPlacementStrategy.java文件，修改内容如下：
+/** * 要修改 * * @param vertex * @return */ private int getPartitionIDbyKey(JanusGraphVertex vertex) { Preconditions.checkState(idManager != null &amp;amp;&amp;amp; key != null, &amp;#34;PropertyPlacementStrategy has not been initialized correctly&amp;#34;); assert idManager.getPartitionBound() &amp;lt;= Integer.MAX_VALUE; int partitionBound = (int) idManager.getPartitionBound(); Iterator&amp;lt;JanusGraphVertexProperty&amp;gt; it = vertex.query().keys(key).properties().iterator(); final JanusGraphVertexProperty p = it.hasNext() ? it.next() : null; if (p == null) { return -1; } //这块可以修改 hashPid通过DGSS的方式获得 // int hashPid = Math.</description>
+    </item>
+    
+    <item>
+      <title>FTP与SFTP服务器部署文档</title>
+      <link>https://Tsihan.github.io/post/graduation-1-post/</link>
+      <pubDate>Tue, 25 Apr 2023 19:37:10 +0800</pubDate>
+      
+      <guid>https://Tsihan.github.io/post/graduation-1-post/</guid>
+      <description>FTP与SFTP服务器部署文档 作者：张启涵 注：该文档用于完成本科毕业设计，完成毕业设计后开源。 FTP服务器部署 部署的服务端系统环境为Ubuntu20.04，服务端使用vsftpd。客户端通过WinSCP以及Java下apache.commons.net.ftp提供的FTPClient进行连接。
+安装vsftpd 在服务器新建一个终端键入如下命令：
+sudo apt-get install vsftpd 创建ftp新用户 创建相应的新用户以及赋予权限：
+sudo mkdir /home/myftp sudo chmod 777 /home/myftp -R sudo useradd -m myftp -d /home/myftp 修改服务器配置 打开/etc/vsftpd.conf文件并编辑：
+sudo vim /etc/vsftpd.conf 本次开发使用到的配置如下（编辑/etc/vsftpd.conf文件）：
+listen=YESanonymous_enable=NOlocal_enable=YESwrite_enable=YESdirmessage_enable=YESuse_localtime=YESxferlog_enable=YESconnect_from_port_20=YESxferlog_file=/var/log/vsftpd.logxferlog_std_format=YESftpd_banner=Welcome to blah FTP service.local_root=/home/myftpchroot_local_user=YESchroot_list_enable=YESchroot_list_file=/etc/vsftpd.chroot_listsecure_chroot_dir=/var/run/vsftpd/emptypam_service_name=myftprsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pemrsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key 其中：
+local_root=/home/myftp目录为之前创建的用户目录，pam_service_name=myftp 默认为vsftpd，需要更改为创建的ftp用户名。
+创建文件vsftpd.chroot_list：
+sudo vim /etc/vsftpd.chroot_list 将之前创建的用户的名称(myftp)添加到该文件中。
+如果将现有用户添加到FTP允许访问名单中，只需要改变local_root以及pam_service_name的具体参数即可。将现有用户的名称添加到文件vsftpd.chroot_list中。
+对于阿里云服务器的配置可以参考该网站。
+在终端根据需求输入以下命令：
+//启动服务 sudo service vsftpd start //重启服务 sudo service vsftpd restart //停止服务 sudo service vsftpd stop //开机自启动服务 sudo systemctl enable vsftpd.</description>
+    </item>
+    
+    <item>
+      <title>成为怎样的人</title>
       <link>https://Tsihan.github.io/post/my-second-post/</link>
       <pubDate>Tue, 25 Apr 2023 16:32:43 +0800</pubDate>
       
@@ -17,7 +87,7 @@
     </item>
     
     <item>
-      <title>My First Post</title>
+      <title>午夜惊梦</title>
       <link>https://Tsihan.github.io/post/my-first-post/</link>
       <pubDate>Tue, 25 Apr 2023 15:34:37 +0800</pubDate>
       
