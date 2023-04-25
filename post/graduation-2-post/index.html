@@ -302,13 +302,13 @@
 <p><!-- raw HTML omitted --><strong>注：该文档用于完成本科毕业设计，完成毕业设计后开源。</strong> <!-- raw HTML omitted --></p>
 <h2 id="获取源代码">获取源代码</h2>
 <p>从<a href="https://github.com/JanusGraph/janusgraph/releases">JanusGraph下载地址</a>获取源代码版本，如下：</p>
-<p><img src="https://github.com/Tsihan/Document4GraduationProject/raw/main/Images/%E8%8E%B7%E5%8F%96%E6%BA%90%E4%BB%A3%E7%A0%81.png%22%E8%8E%B7%E5%8F%96%E6%BA%90%E4%BB%A3%E7%A0%81%22" alt="获取源代码"></p>
+<p><img src="https://Tsihan.github.io/images/posts/%E8%8E%B7%E5%8F%96%E6%BA%90%E4%BB%A3%E7%A0%81.png" alt="获取源代码"></p>
 <p>根据操作系统以及系统所包含的解压缩工具进行选择。</p>
 <h2 id="根据自身需要修改源代码">根据自身需要修改源代码</h2>
 <p>根据数据库内核开发的流程对源代码进行修改，建议使用<code>git</code>版本工具管理。</p>
 <h3 id="增加dgss模块">增加DGSS模块</h3>
 <p>在如下图所示的位置加入DGSS算法模块：</p>
-<p><img src="https://github.com/Tsihan/Document4GraduationProject/raw/main/Images/%E5%86%85%E6%A0%B8%E4%BF%AE%E6%94%B9%E4%BD%8D%E7%BD%AE.png%22%E5%86%85%E6%A0%B8%E4%BF%AE%E6%94%B9%E4%BD%8D%E7%BD%AE%22" alt="内核修改位置"></p>
+<p><img src="https://Tsihan.github.io/images/posts/%E5%86%85%E6%A0%B8%E4%BF%AE%E6%94%B9%E4%BD%8D%E7%BD%AE.png" alt="内核修改位置"></p>
 <h3 id="修改id放置策略">修改ID放置策略</h3>
 <p>对于<code>PropertyPlacementStrategy.java</code>文件，修改内容如下：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#75715e">/**
@@ -415,7 +415,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#新增的末尾内容为跳过代码规范检查</span>
 </span></span><span style="display:flex;"><span>mvn clean install -Pjanusgraph-release -Dgpg.skip<span style="color:#f92672">=</span>true -DskipTests<span style="color:#f92672">=</span>true -Dcheckstyle.skip
 </span></span></code></pre></div><p>等待20分钟左右完成编译，终端输出如下结果，左侧显示已生成<code>JanusGraph</code>可发布版本：</p>
-<p><img src="https://github.com/Tsihan/Document4GraduationProject/raw/main/Images/%E5%AE%8C%E6%88%90JanusGraph%E6%BA%90%E4%BB%A3%E7%A0%81%E7%9A%84%E7%BC%96%E8%AF%91.png%22%E5%AE%8C%E6%88%90%E7%BC%96%E8%AF%91%22" alt="完成编译"></p>
+<p><img src="https://Tsihan.github.io/images/posts/%E5%AE%8C%E6%88%90JanusGraph%E6%BA%90%E4%BB%A3%E7%A0%81%E7%9A%84%E7%BC%96%E8%AF%91.png" alt="完成编译"></p>
 <p><!-- raw HTML omitted --><strong>中途可能会遇到下载速度过慢或卡在下载<code>maven-metadata.xml</code>等情况。建议在终端输入<code>ctrl+c</code>重新进行编译。</strong> <!-- raw HTML omitted --></p>
 <p>对于<code>JanusGraph</code>可发布版本的使用，可以具体参考<code>JanusGraph 0.6.2 分布式集群部署文档.md</code>文档。</p>
 <p><!-- raw HTML omitted --><strong>至此JanusGraph0.6.2源代码编译（生成可发布版本）文档全部结束。</strong><!-- raw HTML omitted --></p>
