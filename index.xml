@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tsihan New Hugo Site</title>
-    <link>http://example.org/</link>
-    <description>Recent content on Tsihan New Hugo Site</description>
+    <title>Tsihan&#39;s Blog</title>
+    <link>https://Tsihan.github.io/</link>
+    <description>Recent content on Tsihan&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Tue, 25 Apr 2023 15:34:37 +0800</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Apr 2023 15:34:37 +0800</lastBuildDate><atom:link href="https://Tsihan.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Post</title>
-      <link>http://example.org/post/my-first-post/</link>
+      <link>https://Tsihan.github.io/post/my-first-post/</link>
       <pubDate>Tue, 25 Apr 2023 15:34:37 +0800</pubDate>
       
-      <guid>http://example.org/post/my-first-post/</guid>
+      <guid>https://Tsihan.github.io/post/my-first-post/</guid>
       <description>俯仰之间看见了满船的星河
 潮湿的夜晚寄托了怅然若失
 记忆以童年的残骸向后隐去
